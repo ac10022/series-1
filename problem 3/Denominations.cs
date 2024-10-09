@@ -17,13 +17,13 @@ namespace ritangle
 
             foreach (int denomination in denominations)
             {
-                int cap = (int)Math.Floor((double)60 / denomination);
-                for (int i = cap; i != 0; i--)
+                while (true)
                 {
                     Console.WriteLine(string.Join(", ", coins));
                     coins.Add(denomination);
                     if (CanSumTo(120, coins))
                     {
+                        coins.Remove(denomination);
                         break;
                     }
                 }
